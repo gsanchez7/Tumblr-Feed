@@ -22,10 +22,10 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         photoFeedTableView.delegate = self
         photoFeedTableView.dataSource = self
+        
         let tryAgainButton = UIAlertAction(title: "Try Again", style: .default) { (action) in
             self.fetchFeed()
         }
-        
         alertControl.addAction(tryAgainButton)
         
         refreshFeed.addTarget(self, action: #selector(didPulltoRefresh), for: .valueChanged)
@@ -73,7 +73,23 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let origionalSize = photo["original_size"] as! [String: Any]
             let urlString = origionalSize["url"] as! String
             let url = URL(string: urlString)
-            cell.photoCellImageView.af_setImage(withURL: url!)
+
+//            cell.photoCellImageView.af_setImage(withURL: url!)
+
+            cell.photoCellImageView.af_setImage(
+                withURL: url!,
+                placeholderImage: UIImage(named: "tumblr-feed placeholder"),
+                imageTransition: UIImageView.ImageTransition.flipFromBottom(0),
+                runImageTransitionIfCached: false) {
+                    // Completion closure
+                    response in
+                    // Check if the image isn't already cached
+                    if response.response != nil {
+                        // Force the cell update
+                        tableView.beginUpdates()
+                        tableView.endUpdates()
+                    }
+            }
         }
         
         return cell
