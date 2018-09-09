@@ -14,6 +14,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     var posts : [[String: Any]] = []
     var refreshFeed = UIRefreshControl()
     
+    let alertControl = UIAlertController(title: "Error: Network Connection Required", message: "Check internet connection and try agin.", preferredStyle: .alert)
     
     @IBOutlet weak var photoFeedTableView: UITableView!
     
@@ -21,6 +22,11 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         super.viewDidLoad()
         photoFeedTableView.delegate = self
         photoFeedTableView.dataSource = self
+        let tryAgainButton = UIAlertAction(title: "Try Again", style: .default) { (action) in
+            self.fetchFeed()
+        }
+        
+        alertControl.addAction(tryAgainButton)
         
         refreshFeed.addTarget(self, action: #selector(didPulltoRefresh), for: .valueChanged)
         photoFeedTableView.insertSubview(refreshFeed, at: 0)
@@ -38,6 +44,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         session.configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         let task = session.dataTask(with: url) { (data, response, error) in
             if let error = error {
+                self.present(self.alertControl, animated: true)
                 print(error.localizedDescription)
             } else if let data = data,
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
