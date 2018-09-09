@@ -36,7 +36,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- My UITableViewCells height were at a height that did not look good.
+- Not comfortable with using JSON.
+
 
 ## License
 
