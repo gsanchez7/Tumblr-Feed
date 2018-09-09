@@ -74,6 +74,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             let urlString = origionalSize["url"] as! String
             let url = URL(string: urlString)
 
+            cell.photoCellImageView.af_setImage(withURL: <#T##URL#>, placeholderImage: <#T##UIImage?#>, filter: <#T##ImageFilter?#>, progress: <#T##ImageDownloader.ProgressHandler?##ImageDownloader.ProgressHandler?##(Progress) -> Void#>, progressQueue: <#T##DispatchQueue#>, imageTransition: <#T##UIImageView.ImageTransition#>, runImageTransitionIfCached: <#T##Bool#>, completion: <#T##((DataResponse<UIImage>) -> Void)?##((DataResponse<UIImage>) -> Void)?##(DataResponse<UIImage>) -> Void#>)
             cell.photoCellImageView.af_setImage(
                 withURL: url!,
                 placeholderImage: UIImage(named: "tumblr-feed placeholder"),
