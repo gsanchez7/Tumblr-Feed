@@ -83,7 +83,4 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
-    
-
-
 }
