@@ -24,7 +24,6 @@ class PhotoDetailsViewController: UIViewController {
             photoImageView.af_setImage(withURL: url)
         }
 
-
     }
 
 
