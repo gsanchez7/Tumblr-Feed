@@ -101,10 +101,6 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
             
         dateLabel.text = date
         
-        // Add a UILabel for the date here
-        // Use the section number to get the right URL
-        // let label = ...
-        
         return headerView
 
     }
