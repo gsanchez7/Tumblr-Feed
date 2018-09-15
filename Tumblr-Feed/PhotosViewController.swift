@@ -21,6 +21,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
         photoFeedTableView.delegate = self
         photoFeedTableView.dataSource = self
         
@@ -128,7 +129,7 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
         if let indexPath = photoFeedTableView.indexPath(for: cell){
-            let photo = posts[indexPath.row]
+            let photo = posts[indexPath.section]
             let photoDetailsViewController = segue.destination as! PhotoDetailsViewController
             photoDetailsViewController.photo = photo
         }

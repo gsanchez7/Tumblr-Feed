@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photos View Controller-->
+        <!--Humans of New York-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PhotosViewController" customModule="Tumblr_Feed" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wjW-Bm-Nb0"/>
+                    <navigationItem key="navigationItem" title="Humans of New York" id="wjW-Bm-Nb0"/>
                     <connections>
                         <outlet property="photoFeedTableView" destination="Mym-dO-a1j" id="c6h-u0-EJB"/>
                     </connections>
