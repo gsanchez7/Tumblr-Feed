@@ -61,7 +61,7 @@ limitations under the License.
 
 **Tumblr - Details Screen** is a photo browsing app app using the [The Tumblr API](https://www.tumblr.com/docs/en/api/v2#posts).
 
-Time spent: **1** hours spent in total
+Time spent: **3** hours spent in total
 
 ## User Stories
 
