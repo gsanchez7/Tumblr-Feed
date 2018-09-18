@@ -33,6 +33,8 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         refreshFeed.addTarget(self, action: #selector(didPulltoRefresh), for: .valueChanged)
         photoFeedTableView.insertSubview(refreshFeed, at: 0)
         
+        self.photoFeedTableView.separatorInset = UIEdgeInsets.zero
+        
         fetchFeed()
     }
     
